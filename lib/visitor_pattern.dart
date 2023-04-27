@@ -82,7 +82,7 @@ void main() {
   ]);
   var basketballTeam = BasketballTeam('Los Angeles Lakers', [
     Player('LeBron James', 97),
-    Player('Anthony Davis', 92),
+    Player('Anthony Davis', 96),
     Player('Russell Westbrook', 88),
   ]);
 
@@ -90,5 +90,5 @@ void main() {
   footballTeam.accept(
       averageRatingVisitor); // виведе "Real Madrid average rating: 94.0"
   basketballTeam.accept(
-      averageRatingVisitor); // виведе "Los Angeles Lakers average rating: 92.33333333333333"
+      averageRatingVisitor); // виведе "Los Angeles Lakers average rating:"
 }

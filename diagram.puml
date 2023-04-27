@@ -1,0 +1,44 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "visitor_pattern::visitor_pattern.dart::TeamVisitor" {
+  +void visit()
+}
+
+class "visitor_pattern::visitor_pattern.dart::Player" {
+  +String name
+  +int rating
+}
+
+abstract class "visitor_pattern::visitor_pattern.dart::Team" {
+  +String name
+  +List<Player> players
+  +void accept()
+}
+
+class "visitor_pattern::visitor_pattern.dart::FootballTeam" {
+  +String name
+  +List<Player> players
+  +void accept()
+}
+
+"visitor_pattern::visitor_pattern.dart::Team" <|-- "visitor_pattern::visitor_pattern.dart::FootballTeam"
+
+class "visitor_pattern::visitor_pattern.dart::BasketballTeam" {
+  +String name
+  +List<Player> players
+  +void accept()
+}
+
+"visitor_pattern::visitor_pattern.dart::Team" <|-- "visitor_pattern::visitor_pattern.dart::BasketballTeam"
+
+class "visitor_pattern::visitor_pattern.dart::AverageRatingVisitor" {
+  +double rating
+  +int count
+  +void visit()
+}
+
+"visitor_pattern::visitor_pattern.dart::TeamVisitor" <|-- "visitor_pattern::visitor_pattern.dart::AverageRatingVisitor"
+
+
+@enduml
