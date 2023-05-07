@@ -34,18 +34,24 @@ abstract class Team {
 }
 
 class FootballTeam implements Team {
+  @override
   String name;
+  @override
   List<Player> players;
   FootballTeam(this.name, this.players);
+  @override
   void accept(TeamVisitor visitor) {
     visitor.visit(this);
   }
 }
 
 class BasketballTeam implements Team {
+  @override
   String name;
+  @override
   List<Player> players;
   BasketballTeam(this.name, this.players);
+  @override
   void accept(TeamVisitor visitor) {
     visitor.visit(this);
   }
@@ -55,15 +61,18 @@ class BasketballTeam implements Team {
 // TeamVisitor та обчислює середній рейтинг команди.
 
 class AverageRatingVisitor implements TeamVisitor {
-  double rating = 0;
-  int count = 0;
+  late double rating;
+  late int count;
+  @override
   void visit(Team team) {
-    team.players.forEach((player) {
+    rating = 0;
+    count = 0;
+    for (var player in team.players) {
       rating += player.rating;
       count++;
-    });
+    }
     rating /= count;
-    print('${team.name} average rating: $rating');
+    print('${team.name} average rating: $rating in count $count');
   }
 }
 
